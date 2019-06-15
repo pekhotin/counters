@@ -54,9 +54,7 @@
               overlap
               small
             >
-              <template slot="badge">
-                6
-              </template>
+              <template slot="badge" v-if="notifications > 0">{{ notifications }}</template>
               <v-icon
                 color="grey lighten-1"
                 large
@@ -84,7 +82,7 @@
         </v-toolbar-items>
       </v-toolbar>
       <v-content>
-        <router-view />
+        <router-view @viewNotifs="notifications = 0" />
       </v-content>
       <!--<v-footer app class="pa-3">-->
         <!--<v-switch-->
@@ -103,8 +101,12 @@ export default {
   name: 'App',
   data: () => ({
     dark: false,
-    drawer: false
+    drawer: false,
+    notifications: 0
   }),
+  created () {
+    this.init()
+  },
   methods: {
     isLogged: function () {
       return localStorage.getItem('login') != null
@@ -113,6 +115,13 @@ export default {
       localStorage.removeItem('login')
       localStorage.removeItem('id')
       this.$router.go(0)
+    },
+    init () {
+      this.$http.get('http://api.saject.ru/getNotifications.php?user_id=' + localStorage.getItem('id'))
+        .then(response => {
+          this.notifications = response.data.notifications
+          console.log(this.notifications)
+        })
     }
   }
 }

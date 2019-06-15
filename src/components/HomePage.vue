@@ -26,19 +26,16 @@
 
         <v-card-text>
           <v-flex>
-            <v-btn block color="red" to="requests/create/flat">Квартира</v-btn>
+            <v-btn block color="yellow" to="requests/create/flat">Квартира</v-btn>
           </v-flex>
           <v-flex>
-            <v-btn block color="orange" to="requests/create/pd">Подъезд</v-btn>
+            <v-btn block color="orange" to="requests/create/entrance">Подъезд</v-btn>
           </v-flex>
           <v-flex>
-            <v-btn block color="yellow" to="requests/create/street">Двор</v-btn>
+            <v-btn block color="green" to="requests/create/yard">Двор</v-btn>
           </v-flex>
           <v-flex>
-            <v-btn block color="green" to="requests/create/house">Дом</v-btn>
-          </v-flex>
-          <v-flex>
-            <v-btn block color="blue" to="requests/create/other">Другое</v-btn>
+            <v-btn block color="blue" to="requests/create/house">Дом</v-btn>
           </v-flex>
         </v-card-text>
 

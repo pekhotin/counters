@@ -60,6 +60,8 @@ export default {
         .then(response => {
           this.requests = response.data
         })
+      this.$http.get('http://api.saject.ru/viewNotifications.php?user_id=' + localStorage.getItem('id'))
+      this.$emit('viewNotifs')
     }
   }
 }

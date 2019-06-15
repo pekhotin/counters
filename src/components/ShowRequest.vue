@@ -29,6 +29,9 @@
               v-model="request.message"
             ></v-textarea>
           </v-flex>
+          <v-flex xs12 class="text-xs-center">
+            <v-btn @click="goBack()">Назад</v-btn>
+          </v-flex>
         </v-layout>
       </v-container>
     </v-card>
@@ -55,6 +58,9 @@ export default {
         .then(response => {
           this.topics = response.data
         })
+    },
+    goBack () {
+      this.$router.go(-1)
     }
   }
 }

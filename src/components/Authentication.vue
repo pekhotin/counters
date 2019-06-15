@@ -29,7 +29,7 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field prepend-icon="person" name="login" label="Имя пользователя" persistent-hint hint="Сотовый телефон/Адрес электронной почты" type="text" v-model="username"></v-text-field>
+                  <v-text-field prepend-icon="person" name="login" label="Телефон или email" type="text" v-model="username"></v-text-field>
                   <v-text-field prepend-icon="lock" name="password" label="Пароль" type="password" id="password" v-model="password"></v-text-field>
                 </v-form>
               </v-card-text>

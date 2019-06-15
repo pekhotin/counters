@@ -17,10 +17,19 @@
             <v-textarea
               v-model="message"
               outline
-              name="input-7-4"
               label="Подбробное описание проблемы"
               value=""
             ></v-textarea>
+          </v-flex>
+          <v-flex xs12>
+            <v-alert
+              :value="isSaved"
+              type="success"
+              transition="scale-transition"
+              outline
+            >
+              Заявка успешно создана!
+            </v-alert>
           </v-flex>
           <v-flex xs12 class="text-xs-right">
             <v-btn @click="$refs.inputUpload.click()">Прикрепить фото</v-btn>
@@ -40,14 +49,15 @@ export default {
     topics: ['Жалоба', 'Претензия', 'Что там еще?'],
     topic: null,
     message: null,
-    file: null
+    file: null,
+    isSaved: false
   }),
   created () {
     this.init()
   },
   methods: {
     init () {
-      this.$http.get('http://api.saject.ru/getTopics.php')
+      this.$http.get('http://api.saject.ru/getTopics.php?type=' + this.$route.params.type)
         .then(response => {
           this.topics = response.data
         })
@@ -59,6 +69,9 @@ export default {
         message: this.message,
         file: this.file
       })
+        .then(response => {
+          this.isSaved = true
+        })
     }
   }
 }
