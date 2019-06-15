@@ -43,14 +43,13 @@
       <!--</v-navigation-drawer>-->
       <v-toolbar fixed app>
         <!--<v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>-->
-        <v-toolbar-title>Управление ЖКХ</v-toolbar-title>
+        <v-toolbar-title><router-link to="/home" style="text-decoration: none; color: black;">смартЖКХ</router-link></v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items>
           <!--<v-btn flat>Link Two</v-btn>-->
-          <v-btn flat href="/home">Главная</v-btn>
-          <v-btn flat icon small to="requests" class="ml-3">
+          <v-btn flat icon small to="requests" class="ml-3" v-show="isLogged()">
             <v-badge
-              color="purple"
+              color="primary"
               right
               overlap
               small
@@ -66,9 +65,9 @@
               </v-icon>
             </v-badge>
           </v-btn>
-          <v-btn flat icon small to="personal" class="ml-3">
+          <v-btn flat icon small to="personal" class="ml-3" v-show="isLogged()">
             <v-badge
-              color="purple"
+              color="primary"
               right
               overlap
             >
@@ -83,7 +82,7 @@
               </v-icon>
             </v-badge>
           </v-btn>
-          <v-btn flat icon small to="#" class="ml-3">
+          <v-btn flat icon small to="#" class="ml-3" @click="logout()" v-show="isLogged()">
             <v-icon
               color="grey lighten-1"
               large
@@ -94,7 +93,7 @@
         </v-toolbar-items>
       </v-toolbar>
       <v-content>
-        <router-view @loggedIn="getMenu"/>
+        <router-view />
       </v-content>
       <!--<v-footer app class="pa-3">-->
         <!--<v-switch-->
@@ -113,41 +112,15 @@ export default {
   name: 'App',
   data: () => ({
     dark: false,
-    drawer: false,
-    menu: []
+    drawer: false
   }),
-  mounted () {
-    this.getMenu()
-  },
   methods: {
     isLogged: function () {
-      return localStorage.getItem('jwt') != null
-    },
-    getMenu: function () {
-      if (this.isLogged()) {
-        this.$http.defaults.headers.common['Authorization'] = localStorage.getItem('jwt')
-        this.$http.get('http://my-api.ptpit.ru/user/menu')
-          .then(response => {
-            console.log(response)
-            this.menu = response.data
-            // let _menu = this.menu
-            // response.data.forEach(function (menuItem) {
-            //   _menu.push({
-            //     'name': menuItem.name,
-            //     'link': menuItem.link,
-            //     'child': menuItem.child
-            //   })
-            // })
-          })
-          .catch(error => {
-            console.log(error)
-            // this.errored = true
-          })
-        // .finally(() => (this.loading = false))
-      }
+      return localStorage.getItem('login') != null
     },
     logout: function () {
-      localStorage.removeItem('jwt')
+      localStorage.removeItem('login')
+      localStorage.removeItem('id')
       this.$router.go(0)
     }
   }

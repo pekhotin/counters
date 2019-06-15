@@ -10,7 +10,7 @@ import Axios from 'axios'
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.prototype.$http = Axios
-Axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwt')
+// Axios.defaults.headers.common['Authorization'] = localStorage.getItem('jwt')
 
 Vue.use(Vuetify)
 Vue.use(UploadButton)

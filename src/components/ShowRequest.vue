@@ -4,25 +4,30 @@
       <v-container fluid>
         <v-layout align-center justify-center row fill-height wrap>
           <v-flex xs12>
-            <v-select
+            <v-text-field
               :items="types"
               label="Тип обращения"
               outline
               disabled
-            ></v-select>
+              v-model="request.topic"
+            ></v-text-field>
+          </v-flex>
+          <v-flex xs12>
+            <v-text-field
+              outline
+              label="Статус"
+              disabled
+              v-model="request.status"
+            ></v-text-field>
           </v-flex>
           <v-flex xs12>
             <v-textarea
               outline
-              name="input-7-4"
               label="Подбробное описание проблемы"
               value=""
               disabled
+              v-model="request.message"
             ></v-textarea>
-          </v-flex>
-          <v-flex xs12 class="text-xs-right">
-            <v-btn @click="$refs.inputUpload.click()" disabled>Прикрепить фото</v-btn>
-            <input v-show="false" ref="inputUpload" type="file" @change="" multiple disabled>
           </v-flex>
         </v-layout>
       </v-container>
@@ -32,7 +37,26 @@
 
 <script>
 export default {
-  name: "ShowRequest"
+  name: 'ShowRequest',
+  data: () => ({
+    types: [],
+    request: null
+  }),
+  created () {
+    this.init()
+  },
+  methods: {
+    init () {
+      this.$http.get('http://api.saject.ru/getOrder.php?id=' + this.$route.params.id)
+        .then(response => {
+          this.request = response.data[0]
+        })
+      this.$http.get('http://api.saject.ru/getTopics.php')
+        .then(response => {
+          this.topics = response.data
+        })
+    }
+  }
 }
 </script>
 
