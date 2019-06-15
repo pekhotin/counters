@@ -3,7 +3,9 @@ import Router from 'vue-router'
 import Authentication from '@/components/Authentication'
 import HomePage from '@/components/HomePage'
 import Request from '@/components/Request'
+import ShowRequest from '@/components/ShowRequest'
 import Requests from '@/components/Requests'
+import Personal from '@/components/Personal'
 
 Vue.use(Router)
 
@@ -30,7 +32,14 @@ let router = new Router({
       }
     },
     {
-      path: '/requests/:type',
+      path: '/requests/:id',
+      component: ShowRequest,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/requests/create/:type',
       component: Request,
       meta: {
         requiresAuth: true
@@ -39,6 +48,13 @@ let router = new Router({
     {
       path: '/requests',
       component: Requests,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/personal',
+      component: Personal,
       meta: {
         requiresAuth: true
       }

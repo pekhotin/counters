@@ -11,7 +11,9 @@
           <td>{{ props.item.type }}</td>
           <td class="text-xs-center">{{ props.item.date }}</td>
           <td class="text-xs-center">{{ props.item.status }}</td>
-          <td class="text-xs-center"><v-btn small :to="'/requests/' + props.item.id">Подробнее</v-btn></td>
+          <td class="text-xs-center">
+            <v-btn small :to="'/requests/' + props.item.id">Подробнее</v-btn>
+          </td>
         </template>
       </v-data-table>
       </v-card>

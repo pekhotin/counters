@@ -28,7 +28,7 @@
                 <v-toolbar-title>Вход в личный кабинет</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-tooltip right>
-                  <v-btn slot="activator" icon href="https://ptpit.ru" target="_blank">
+                  <v-btn slot="activator" icon target="_blank">
                     <v-icon>home</v-icon>
                   </v-btn>
                   <span>На главную</span>
@@ -67,7 +67,7 @@ export default {
   methods: {
     login: function () {
       if (this.password.length > 0) {
-        this.$http.post('http://my-api.ptpit.ru/login', {
+        this.$http.post('http://api.saject.ru/login', {
           username: this.username,
           password: this.password
         })
@@ -82,7 +82,7 @@ export default {
                 if (this.$route.params.nextUrl != null) {
                   this.$router.push(this.$route.params.nextUrl)
                 } else {
-                  this.$router.push('timetable')
+                  this.$router.push('home')
                 }
               }
             } else {

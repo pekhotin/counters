@@ -6,7 +6,7 @@
           <v-layout>
             <v-flex xs12>
               <v-btn block color="orange" @click="dialog = true">Сообщить о проблеме</v-btn>
-              <v-btn block color="primary" class="mt-3">Мои заявки</v-btn>
+              <v-btn block color="primary" class="mt-3" to="requests">Мои заявки</v-btn>
             </v-flex>
           </v-layout>
         </v-container>
@@ -26,19 +26,19 @@
 
         <v-card-text>
           <v-flex>
-            <v-btn block color="red" to="requests/house">Дом</v-btn>
+            <v-btn block color="red" to="requests/create/flat">Квартира</v-btn>
           </v-flex>
           <v-flex>
-            <v-btn block color="orange" to="requests/street">Двор</v-btn>
+            <v-btn block color="orange" to="requests/create/pd">Подъезд</v-btn>
           </v-flex>
           <v-flex>
-            <v-btn block color="yellow" to="requests/pd">Подъезд</v-btn>
+            <v-btn block color="yellow" to="requests/create/street">Двор</v-btn>
           </v-flex>
           <v-flex>
-            <v-btn block color="green" to="requests/lift">Лифт</v-btn>
+            <v-btn block color="green" to="requests/create/house">Дом</v-btn>
           </v-flex>
           <v-flex>
-            <v-btn block color="blue" to="requests/other">Другое</v-btn>
+            <v-btn block color="blue" to="requests/create/other">Другое</v-btn>
           </v-flex>
         </v-card-text>
 

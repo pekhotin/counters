@@ -48,14 +48,14 @@
         <v-toolbar-items>
           <!--<v-btn flat>Link Two</v-btn>-->
           <v-btn flat href="/home">Главная</v-btn>
-          <v-btn flat icon small>
+          <v-btn flat icon small to="requests" class="ml-3">
             <v-badge
               color="purple"
               right
               overlap
               small
             >
-              <template v-slot:badge>
+              <template slot="badge">
                 6
               </template>
               <v-icon
@@ -66,13 +66,13 @@
               </v-icon>
             </v-badge>
           </v-btn>
-          <v-btn flat icon small>
+          <v-btn flat icon small to="personal" class="ml-3">
             <v-badge
               color="purple"
               right
               overlap
             >
-              <template v-slot:badge>
+              <template slot="badge">
                 6
               </template>
               <v-icon
@@ -82,6 +82,14 @@
                 person
               </v-icon>
             </v-badge>
+          </v-btn>
+          <v-btn flat icon small to="#" class="ml-3">
+            <v-icon
+              color="grey lighten-1"
+              large
+            >
+              exit_to_app
+            </v-icon>
           </v-btn>
         </v-toolbar-items>
       </v-toolbar>
