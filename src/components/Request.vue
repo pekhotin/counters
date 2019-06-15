@@ -19,6 +19,8 @@
             ></v-textarea>
           </v-flex>
           <v-flex xs12 class="text-xs-right">
+            <v-btn @click="$refs.inputUpload.click()">Прикрепить фото</v-btn>
+            <input v-show="false" ref="inputUpload" type="file" @change="" multiple>
             <v-btn color="success">Отправить</v-btn>
           </v-flex>
         </v-layout>

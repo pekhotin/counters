@@ -47,7 +47,7 @@
         <v-spacer></v-spacer>
         <v-toolbar-items>
           <!--<v-btn flat>Link Two</v-btn>-->
-          <!--<v-btn flat>Link Three</v-btn>-->
+          <v-btn flat href="/home">Главная</v-btn>
           <v-btn flat icon small>
             <v-badge
               color="purple"

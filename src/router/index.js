@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Authentication from '@/components/Authentication'
 import HomePage from '@/components/HomePage'
 import Request from '@/components/Request'
+import Requests from '@/components/Requests'
 
 Vue.use(Router)
 
@@ -29,8 +30,15 @@ let router = new Router({
       }
     },
     {
-      path: '/requests',
+      path: '/requests/:type',
       component: Request,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/requests',
+      component: Requests,
       meta: {
         requiresAuth: true
       }
