@@ -47,7 +47,7 @@
         <v-spacer></v-spacer>
         <v-toolbar-items>
           <!--<v-btn flat>Link Two</v-btn>-->
-          <v-btn flat icon small to="requests" class="ml-3" v-show="isLogged()">
+          <v-btn active-class="" flat icon small to="requests" class="ml-3" v-show="isLogged()">
             <v-badge
               color="primary"
               right
@@ -65,24 +65,15 @@
               </v-icon>
             </v-badge>
           </v-btn>
-          <v-btn flat icon small to="personal" class="ml-3" v-show="isLogged()">
-            <v-badge
-              color="primary"
-              right
-              overlap
+          <v-btn active-class="" flat icon small to="personal" class="ml-3" v-show="isLogged()">
+            <v-icon
+              color="grey lighten-1"
+              large
             >
-              <template slot="badge">
-                6
-              </template>
-              <v-icon
-                color="grey lighten-1"
-                large
-              >
-                person
-              </v-icon>
-            </v-badge>
+              person
+            </v-icon>
           </v-btn>
-          <v-btn flat icon small to="#" class="ml-3" @click="logout()" v-show="isLogged()">
+          <v-btn  flat icon small to="#" class="ml-3" @click="logout()" v-show="isLogged()">
             <v-icon
               color="grey lighten-1"
               large

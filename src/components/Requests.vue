@@ -6,6 +6,8 @@
         :headers="headers"
         :items="requests"
         :pagination.sync="pagination"
+        rows-per-page-text="Записей на странице"
+        :rows-per-page-items="rowPerPageItems"
         class="elevation-1"
       >
         <template slot="items" slot-scope="props">
@@ -15,6 +17,12 @@
           <td class="text-xs-center">
             <v-btn small :to="'/requests/' + props.item.id">Подробнее</v-btn>
           </td>
+        </template>
+        <template slot="no-data">
+          <v-btn @click="initialize">Обновить</v-btn>
+        </template>
+        <template slot="pageText" slot-scope="props">
+          Показаны {{ props.pageStart }}-{{ props.pageStop }} из {{ props.itemsLength }}
         </template>
       </v-data-table>
       </v-card>
@@ -26,6 +34,7 @@
 export default {
   name: 'Requests',
   data: () => ({
+    rowPerPageItems: [5, 20, 25, {'text': 'Все', 'value': -1}],
     pagination: {
       sortBy: 'status'
     },
