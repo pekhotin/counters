@@ -5,6 +5,7 @@
       <v-data-table
         :headers="headers"
         :items="requests"
+        :pagination.sync="pagination"
         class="elevation-1"
       >
         <template slot="items" slot-scope="props">
@@ -25,6 +26,9 @@
 export default {
   name: 'Requests',
   data: () => ({
+    pagination: {
+      sortBy: 'status'
+    },
     headers: [
       {
         text: 'Тип',
@@ -43,7 +47,6 @@ export default {
   },
   methods: {
     init () {
-      console.log('qwe');
       this.$http.get('http://api.saject.ru/getOrders.php?user_id=' + localStorage.getItem('id'))
         .then(response => {
           this.requests = response.data
