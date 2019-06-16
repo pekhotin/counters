@@ -29,12 +29,18 @@
               v-model="request.message"
             ></v-textarea>
           </v-flex>
+          <v-flex xs12 class="">
+            <h3>История</h3>
+            <p>2019-06-16 03:12:59 Житель Иванович создал заявку</p>
+            <p>2019-06-16 03:42:19 Исполнитель Камилевич взял заявку в работу</p>
+          </v-flex>
           <v-flex xs12 class="text-xs-center">
             Пожалуйста, оцените работу мастера
             <v-rating v-model="rating"></v-rating>
           </v-flex>
           <v-flex xs12 class="text-xs-center">
-            <v-btn @click="goBack()">Назад</v-btn>
+            <v-btn @click="goBack()" color="primary">Назад</v-btn>
+            <v-btn>Пожаловаться и вернуть в работу</v-btn>
           </v-flex>
         </v-layout>
       </v-container>

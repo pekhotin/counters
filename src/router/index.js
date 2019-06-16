@@ -6,6 +6,7 @@ import Request from '@/components/Request'
 import ShowRequest from '@/components/ShowRequest'
 import Requests from '@/components/Requests'
 import Personal from '@/components/Personal'
+import current from '@/components/current'
 
 Vue.use(Router)
 
@@ -55,6 +56,13 @@ let router = new Router({
     {
       path: '/personal',
       component: Personal,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/current',
+      component: current,
       meta: {
         requiresAuth: true
       }

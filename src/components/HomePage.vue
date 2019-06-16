@@ -46,7 +46,7 @@
             <v-flex xs12 v-show="type === 2">
               <v-btn block color="primary">Заявки моих жильцов</v-btn>
               <v-btn block class="mt-3">Мои подрядчики/запросы</v-btn>
-              <v-btn block class="mt-3">Запросить показания счетчиков</v-btn>
+              <v-btn to="/current" block class="mt-3">Показания учета приборов</v-btn>
               <v-btn block class="mt-3">Получить отзывы из соцсетей</v-btn>
               <v-btn block class="mt-3">Печать заказ-нарядов, счетов и актов</v-btn>
               <v-btn block color="success" class="mt-3" @click="dialog3 = true">Пополнить счёт</v-btn>

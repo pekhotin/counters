@@ -11,12 +11,12 @@
         class="elevation-1"
       >
         <template slot="items" slot-scope="props">
-          <td>{{ props.item.topic }}</td>
+          <td class="text-xs-center">
+            <v-btn small :to="'/requests/' + props.item.id">Открыть</v-btn>
+          </td>
           <td class="text-xs-center">{{ props.item.datetime_create }}</td>
           <td class="text-xs-center">{{ props.item.status }}</td>
-          <td class="text-xs-center">
-            <v-btn small :to="'/requests/' + props.item.id">Подробнее</v-btn>
-          </td>
+          <td class="text-xs-center">{{ props.item.topic }}</td>
         </template>
         <template slot="no-data">
           <v-btn @click="initialize">Обновить</v-btn>
@@ -34,19 +34,15 @@
 export default {
   name: 'Requests',
   data: () => ({
-    rowPerPageItems: [5, 20, 25, {'text': 'Все', 'value': -1}],
+    rowPerPageItems: [20, 50, {'text': 'Все', 'value': -1}],
     pagination: {
-      sortBy: 'status'
+      sortBy: 'datetime_create'
     },
     headers: [
-      {
-        text: 'Тип',
-        align: 'left',
-        value: 'topic'
-      },
-      { text: 'Дата', align: 'center', value: 'datetime_create' },
+      { text: 'Действия', align: 'center', value: 'operations', sortable: false },
+      { text: 'Создана', align: 'center', value: 'datetime_create' },
       { text: 'Статус', align: 'center', value: 'status' },
-      { text: 'Действия', align: 'center', value: 'operations', sortable: false }
+      { text: 'Тип', align: 'center', value: 'topic' }
     ],
     requests: []
   }),
