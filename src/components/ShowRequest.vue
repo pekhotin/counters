@@ -23,7 +23,7 @@
           <v-flex xs12>
             <v-textarea
               outline
-              label="Подбробное описание проблемы"
+              label="Подробное описание проблемы"
               value=""
               disabled
               v-model="request.message"

@@ -16,7 +16,7 @@
           <img :src="img2" @click="type = 2">
           <br>
           <span style="margin-left: 13px;">
-          ЖКХ
+          ТСЖ
           <v-btn flat icon color="grey" style="margin-left: -8px;" @click="openDialog(2)">
             <v-icon size="20">help_outline</v-icon>
           </v-btn>

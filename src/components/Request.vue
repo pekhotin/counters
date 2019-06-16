@@ -17,7 +17,7 @@
             <v-textarea
               v-model="message"
               outline
-              label="Подбробное описание проблемы"
+              label="Подробное описание проблемы"
               value=""
             ></v-textarea>
           </v-flex>
