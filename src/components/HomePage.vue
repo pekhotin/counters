@@ -47,7 +47,7 @@
               <v-btn block color="primary">Заявки моих жильцов</v-btn>
               <v-btn block class="mt-3">Мои подрядчики/запросы</v-btn>
               <v-btn to="/current" block class="mt-3">Показания учета приборов</v-btn>
-              <v-btn block class="mt-3">Получить отзывы из соцсетей</v-btn>
+              <v-btn block class="mt-3" @click="dialog5 = true">Получить отзывы из соцсетей</v-btn>
               <v-btn block class="mt-3">Печать заказ-нарядов, счетов и актов</v-btn>
               <v-btn block color="success" class="mt-3" @click="dialog3 = true">Пополнить счёт</v-btn>
             </v-flex>
@@ -236,6 +236,36 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <v-dialog
+      v-model="dialog5"
+    >
+
+      <v-card>
+        <v-card-title
+          class="headline grey lighten-2"
+          primary-title
+        >
+          Отзывы соц. сетей
+        </v-card-title>
+
+        <v-card-text>
+          <img :src="soc" width="100%">
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            color="primary"
+            flat
+            @click="dialog4 = false"
+          >
+            Закрыть
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-layout>
 </template>
 
@@ -247,9 +277,11 @@ export default {
     dialog2: false,
     dialog3: false,
     dialog4: false,
+    dialog5: false,
     img1: require('@/assets/234-man-raising-hand-1-128.png'),
     img2: require('@/assets/154-man-office-worker-2-128.png'),
     img3: require('@/assets/145-man-mechanic-1-128.png'),
+    soc: require('@/assets/image.png'),
     type: 1,
     dialog2type: 1
   }),

@@ -29,6 +29,9 @@
               v-model="request.message"
             ></v-textarea>
           </v-flex>
+          <v-flex xs12 class="text-xs-center">
+            <img :src="file" v-if="request.file !== 'file'" width="200">
+          </v-flex>
           <v-flex xs12 class="">
             <h3>История</h3>
             <p>2019-06-16 03:12:59 Житель Иванович создал заявку</p>
@@ -54,7 +57,8 @@ export default {
   data: () => ({
     types: [],
     request: null,
-    rating: 5
+    rating: 5,
+    file: ''
   }),
   created () {
     this.init()
@@ -64,6 +68,9 @@ export default {
       this.$http.get('https://api.saject.ru/getOrder.php?id=' + this.$route.params.id)
         .then(response => {
           this.request = response.data[0]
+          if (this.request.file !== 'file') {
+            this.file = require('@/assets/' + this.request.file)
+          }
         })
       this.$http.get('https://api.saject.ru/getTopics.php')
         .then(response => {
