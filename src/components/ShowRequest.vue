@@ -30,6 +30,10 @@
             ></v-textarea>
           </v-flex>
           <v-flex xs12 class="text-xs-center">
+            Пожалуйста, оцените работу мастера
+            <v-rating v-model="rating"></v-rating>
+          </v-flex>
+          <v-flex xs12 class="text-xs-center">
             <v-btn @click="goBack()">Назад</v-btn>
           </v-flex>
         </v-layout>
@@ -43,7 +47,8 @@ export default {
   name: 'ShowRequest',
   data: () => ({
     types: [],
-    request: null
+    request: null,
+    rating: 5
   }),
   created () {
     this.init()

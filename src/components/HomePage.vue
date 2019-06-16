@@ -45,9 +45,9 @@
             </v-flex>
             <v-flex xs12 v-show="type === 2">
               <v-btn block color="primary">Заявки моих жильцов</v-btn>
-              <v-btn block class="mt-3">Мои Подрядчики и запросы аккредитации</v-btn>
-              <v-btn block class="mt-3">Запросить жильцов показания счетчиков</v-btn>
-              <v-btn block class="mt-3">Выгрузить данные в ГИС ЖКХ</v-btn>
+              <v-btn block class="mt-3">Мои подрядчики/запросы</v-btn>
+              <v-btn block class="mt-3">Запросить показания счетчиков</v-btn>
+              <v-btn block class="mt-3">Получить отзывы из соцсетей</v-btn>
               <v-btn block class="mt-3">Печать заказ-нарядов, счетов и актов</v-btn>
               <v-btn block color="success" class="mt-3" @click="dialog3 = true">Пополнить счёт</v-btn>
             </v-flex>
@@ -215,7 +215,7 @@
           class="headline grey lighten-2"
           primary-title
         >
-          Пополнение
+          Доступные заявки
         </v-card-title>
 
         <v-card-text>
@@ -276,5 +276,9 @@ export default {
   .active, .types:hover {
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .scroll {
+    height: 250px !important;
   }
 </style>

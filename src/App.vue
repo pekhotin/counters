@@ -43,11 +43,16 @@
       <!--</v-navigation-drawer>-->
       <v-toolbar fixed app>
         <!--<v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>-->
-        <v-toolbar-title><router-link to="/home" style="text-decoration: none; color: black;">смартЖКХ</router-link></v-toolbar-title>
+        <v-toolbar-title>
+          <router-link to="/home" style="text-decoration: none; color: black;">
+            <v-icon medium color="black">home</v-icon>
+            смартЖКХ
+          </router-link>
+        </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items>
           <!--<v-btn flat>Link Two</v-btn>-->
-          <v-btn active-class="" flat icon small to="requests" class="ml-3" v-show="isLogged()">
+          <v-btn active-class="" flat icon small to="/requests" class="ml-3" v-show="isLogged()">
             <v-badge
               color="primary"
               right
@@ -64,7 +69,7 @@
               </v-icon>
             </v-badge>
           </v-btn>
-          <v-btn active-class="" flat icon small to="personal" class="ml-3" v-show="isLogged()">
+          <v-btn active-class="" flat icon small to="/personal" class="ml-3" v-show="isLogged()">
             <v-icon
               color="grey lighten-1"
               large

@@ -57,13 +57,13 @@ export default {
   },
   methods: {
     init () {
-      this.$http.get('http://api.saject.ru/getTopics.php?type=' + this.$route.params.type)
+      this.$http.get('https://api.saject.ru/getTopics.php?type=' + this.$route.params.type)
         .then(response => {
           this.topics = response.data
         })
     },
     save () {
-      this.$http.post('http://api.saject.ru/createRequest.php', {
+      this.$http.post('https://api.saject.ru/createRequest.php', {
         user_id: localStorage.getItem('id'),
         topic: this.topic,
         message: this.message,
