@@ -259,7 +259,7 @@
           <v-btn
             color="primary"
             flat
-            @click="dialog4 = false"
+            @click="dialog5 = false"
           >
             Закрыть
           </v-btn>

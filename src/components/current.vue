@@ -17,12 +17,13 @@
     <v-data-table
       :headers="headers"
       :items="v"
-
+      :pagination.sync="pagination"
       rows-per-page-text="Записей на странице"
       :rows-per-page-items="rowPerPageItems"
       class="elevation-1"
     >
       <template slot="items" slot-scope="props">
+        <td class="text-xs-center">{{ getTime(props.item.datetime) }}</td>
         <td class="text-xs-center">{{ props.item.data_cold }}</td>
         <td class="text-xs-center">{{ props.item.data_hot }}</td>
         <td class="text-xs-center">{{ props.item.temperature }}</td>
@@ -51,7 +52,12 @@ export default {
   name: 'current',
   data: () => ({
     rowPerPageItems: [10],
+    pagination: {
+      sortBy: 'datetime',
+      descending: true
+    },
     headers: [
+      { text: 'Время', align: 'center', value: 'datetime' },
       { text: 'Счетчик ХВС', align: 'center', value: 'data_cold' },
       { text: 'Счетчик ГВС', align: 'center', value: 'data_hot' },
       { text: 'Температура', align: 'center', value: 'temperature' }
@@ -80,6 +86,10 @@ export default {
             console.log(this.values)
           })
       }, 1000)
+    },
+    getTime (unixtime) {
+      var d = new Date(unixtime * 1000)
+      return d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds()
     }
   }
 }
