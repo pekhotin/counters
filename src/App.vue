@@ -54,7 +54,8 @@
               overlap
               small
             >
-              <template slot="badge" v-if="notifications > 0">{{ notifications }}</template>
+              <!--<template slot="badge" v-if="notifications > 0">{{ notifications }}</template>-->
+              <template slot="badge">3</template>
               <v-icon
                 color="grey lighten-1"
                 large
@@ -117,7 +118,7 @@ export default {
       this.$router.go(0)
     },
     init () {
-      this.$http.get('http://api.saject.ru/getNotifications.php?user_id=' + localStorage.getItem('id'))
+      this.$http.get('https://api.saject.ru/getNotifications.php?user_id=' + localStorage.getItem('id'))
         .then(response => {
           this.notifications = response.data.notifications
           console.log(this.notifications)

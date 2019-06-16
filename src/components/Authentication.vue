@@ -63,7 +63,7 @@ export default {
   methods: {
     login: function () {
       if (this.password.length > 0) {
-        this.$http.post('http://api.saject.ru/auth.php?qwe=qwe', {
+        this.$http.post('https://api.saject.ru/auth.php', {
           login: this.username,
           pass: this.password
         })

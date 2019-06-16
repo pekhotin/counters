@@ -50,11 +50,11 @@ export default {
   },
   methods: {
     init () {
-      this.$http.get('http://api.saject.ru/getOrder.php?id=' + this.$route.params.id)
+      this.$http.get('https://api.saject.ru/getOrder.php?id=' + this.$route.params.id)
         .then(response => {
           this.request = response.data[0]
         })
-      this.$http.get('http://api.saject.ru/getTopics.php')
+      this.$http.get('https://api.saject.ru/getTopics.php')
         .then(response => {
           this.topics = response.data
         })

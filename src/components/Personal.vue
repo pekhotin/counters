@@ -40,7 +40,7 @@
                 </template>
               </v-checkbox>
             </v-flex>
-            <p>Используя сайт и мобильное приложение вы принимаете условия <a href="#">публичной оферты</a></p>
+            <p class="mytext">Используя сайт и мобильное приложение вы принимаете условия <a href="#">публичной оферты</a></p>
             <v-flex xs12>
               <v-alert
                 :value="isSaved"
@@ -81,7 +81,7 @@ export default {
       this.$router.go(-1)
     },
     init () {
-      this.$http.get('http://api.saject.ru/person.php?user_id=' + localStorage.getItem('id'))
+      this.$http.get('https://api.saject.ru/person.php?user_id=' + localStorage.getItem('id'))
         .then(response => {
           this.firstname = response.data.firstname
           this.secondname = response.data.secondname
@@ -90,7 +90,7 @@ export default {
         })
     },
     save () {
-      this.$http.post('http://api.saject.ru/saveperson.php', {
+      this.$http.post('https://api.saject.ru/saveperson.php', {
         id: localStorage.getItem('id'),
         firstname: this.firstname,
         secondname: this.secondname,
@@ -106,5 +106,9 @@ export default {
 </script>
 
 <style scoped>
-
+  .mytext {
+    color: rgba(0,0,0,.54);
+    font-size: 16px;
+    margin-top: -15px;
+  }
 </style>

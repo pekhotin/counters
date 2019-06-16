@@ -56,11 +56,11 @@ export default {
   },
   methods: {
     init () {
-      this.$http.get('http://api.saject.ru/getOrders.php?user_id=' + localStorage.getItem('id'))
+      this.$http.get('https://api.saject.ru/getOrders.php?user_id=' + localStorage.getItem('id'))
         .then(response => {
           this.requests = response.data
         })
-      this.$http.get('http://api.saject.ru/viewNotifications.php?user_id=' + localStorage.getItem('id'))
+      this.$http.get('https://api.saject.ru/viewNotifications.php?user_id=' + localStorage.getItem('id'))
       this.$emit('viewNotifs')
     }
   }
