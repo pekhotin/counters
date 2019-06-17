@@ -52,8 +52,8 @@
 export default {
   data: () => ({
     drawer: null,
-    username: '',
-    password: '',
+    username: 'demo',
+    password: 'demo',
     snackbar: false,
     error: ''
   }),
